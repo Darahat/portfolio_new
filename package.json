@@ -22,6 +22,8 @@
     },
     "dependencies": {
         "aos": "^2.3.4",
-        "jquery": "^3.7.1"
+        "bootstrap": "^5.3.7",
+        "jquery": "^3.7.1",
+        "swiper": "^11.2.10"
     }
 }

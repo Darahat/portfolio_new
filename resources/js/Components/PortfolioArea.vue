@@ -39,8 +39,7 @@
                                 <img class="port-img position-absolute left-0 ml-xl-3 transition5"
                                     src="/images/portfolio/port-img5.webp" alt="Solidity smart contract,
                                             Ethereum blockchain,NuxtJs,Solidity,DeFi DApp,Web3.js,Smart contract development,">
-                                <div class="port-content text-center transition5 z-index11" data-toggle="modal"
-                                    data-target="#stakehive">
+                                <div class="port-content text-center transition5 z-index11" @click="openModal('stakehive')">
                                     <span class="d-inline-block"><i class="far fa-plus"></i>
                                     </span>
                                 </div><!-- /port-content -->
@@ -71,8 +70,7 @@
                                             Mobile-friendly layout,
                                             User-friendly web design, Vue.js developer, backend-developer, Laravel 10,
                                             php, laravel developer,">
-                                <div class="port-content text-center transition5 z-index11" data-toggle="modal"
-                                    data-target="#exampleModal-p1">
+                                <div class="port-content text-center transition5 z-index11" @click="openModal('exampleModal-p1')">
                                     <span class="d-inline-block"><i class="far fa-plus"></i>
                                     </span>
                                 </div><!-- /port-content -->
@@ -102,8 +100,7 @@
                                             user interface design,
                                             digital experience, front-end developer, backend-developer, Laravel 10,
                                             php, laravel developer">
-                                <div class="port-content text-center transition5 z-index11" data-toggle="modal"
-                                    data-target="#exampleModal-p2">
+                                <div class="port-content text-center transition5 z-index11" @click="openModal('exampleModal-p2')">
                                     <span class="d-inline-block"><i class="far fa-plus"></i>
                                     </span>
                                 </div><!-- /port-content -->
@@ -122,7 +119,7 @@
                                 <h3>Front & Back End Development for ELP</h3>
                             </div><!-- /col -->
                             <div
-                                class="col-xl-5 col-lg-5 col-md-6  col-sm- col- d-flex justify-content-end align-items-center">
+                                class="col-xl-5  col-lg-5 col-md-6  col-sm- col- d-flex justify-content-end align-items-center">
                                 <img class="port-img position-absolute left-0 ml-xl-3 transition5"
                                     src="/images/portfolio/port-img3.webp" alt="E-learning platform,
                                             Laravel development,
@@ -136,8 +133,7 @@
                                             Progress tracking,
                                             Laravel 10,
                                             php developer, laravel developer">
-                                <div class="port-content text-center transition5 z-index11" data-toggle="modal"
-                                    data-target="#exampleModal-p3">
+                                <div class="port-content text-center transition5 z-index11" @click="openModal('exampleModal-p3')">
                                     <span class="d-inline-block"><i class="far fa-plus"></i>
                                     </span>
                                 </div><!-- /port-content -->
@@ -168,8 +164,7 @@
                                             Agriculture outreach
                                             Mobile learning platform
                                             Agricultural resources app, Flutter app developer">
-                                <div class="port-content text-center transition5 z-index11" data-toggle="modal"
-                                    data-target="#exampleModal-p4">
+                                <div class="port-content text-center transition5 z-index11" @click="openModal('exampleModal-p4')">
                                     <span class="d-inline-block"><i class="far fa-plus"></i>
                                     </span>
                                 </div><!-- /port-content -->
@@ -182,12 +177,12 @@
                 <!-- latest modal 1 start -->
                 <!-- latest modal 1 start -->
                 <!-- Modal1 start -->
-                <div class="modal fade" id="stakehive" tabindex="-1" role="dialog"
+                <div class="modal fade" :class="{ 'show d-block': activeModal === 'stakehive' }" id="stakehive" tabindex="-1" role="dialog"
                     aria-labelledby="stakehive" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="close-icon float-right pt-10 pr-10">
-                                <button type="button" class="close d-inline-block" data-dismiss="modal"
+                                <button type="button" class="close d-inline-block" @click="closeModal"
                                     aria-label="Close">
                                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                                 </button>
@@ -304,12 +299,12 @@
 
 
                 <!-- Modal1 start -->
-                <div class="modal fade" id="exampleModal-p1" tabindex="-1" role="dialog"
+                <div class="modal fade" :class="{ 'show d-block': activeModal === 'exampleModal-p1' }" id="exampleModal-p1" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModal-p1" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="close-icon float-right pt-10 pr-10">
-                                <button type="button" class="close d-inline-block" data-dismiss="modal"
+                                <button type="button" class="close d-inline-block" @click="closeModal"
                                     aria-label="Close">
                                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                                 </button>
@@ -459,12 +454,12 @@
                 <!-- Modal end -->
 
                 <!-- Modal2 start -->
-                <div class="modal fade" id="exampleModal-p2" tabindex="-2" role="dialog"
+                <div class="modal fade" :class="{ 'show d-block': activeModal === 'exampleModal-p2' }" id="exampleModal-p2" tabindex="-2" role="dialog"
                     aria-labelledby="exampleModal-p1" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="close-icon float-right pt-10 pr-10">
-                                <button type="button" class="close d-inline-block" data-dismiss="modal"
+                                <button type="button" class="close d-inline-block" @click="closeModal"
                                     aria-label="Close">
                                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                                 </button>
@@ -601,12 +596,12 @@
                 <!-- Modal end -->
 
                 <!-- Modal3 start -->
-                <div class="modal fade" id="exampleModal-p3" tabindex="-3" role="dialog"
+                <div class="modal fade" :class="{ 'show d-block': activeModal === 'exampleModal-p3' }" id="exampleModal-p3" tabindex="-3" role="dialog"
                     aria-labelledby="exampleModal-p1" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="close-icon float-right pt-10 pr-10">
-                                <button type="button" class="close d-inline-block" data-dismiss="modal"
+                                <button type="button" class="close d-inline-block" @click="closeModal"
                                     aria-label="Close">
                                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                                 </button>
@@ -760,12 +755,12 @@
                 <!-- Modal end -->
 
                 <!-- Modal4 start -->
-                <div class="modal fade" id="exampleModal-p4" tabindex="-4" role="dialog"
+                <div class="modal fade" :class="{ 'show d-block': activeModal === 'exampleModal-p4' }" id="exampleModal-p4" tabindex="-4" role="dialog"
                     aria-labelledby="exampleModal-p1" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="close-icon float-right pt-10 pr-10">
-                                <button type="button" class="close d-inline-block" data-dismiss="modal"
+                                <button type="button" class="close d-inline-block" @click="closeModal"
                                     aria-label="Close">
                                     <span aria-hidden="true"><i class="fa fa-times"></i></span>
                                 </button>
@@ -870,7 +865,7 @@
                                                         </li>
                                                         <li class="d-inline-block pr-10">
                                                             <a class="d-block"
-                                                                href="https://www.fiverr.com/darahat428?up_rollout=true">Agricultural
+                                                                href="https://www.fiverr.com/s/darahat428?up_rollout=true">Agricultural
                                                                 resources
                                                                 app</a>
                                                         </li>
@@ -911,3 +906,28 @@
         </div><!-- /portfolio-wrapper -->
     </div>
 </template>
+<script>
+export default {
+    name: 'PortfolioArea',
+    data() {
+        return {
+            activeModal: null
+        };
+    },
+    methods: {
+        openModal(modalId) {
+            this.activeModal = modalId;
+            document.body.classList.add('modal-open'); // Add class to body to prevent scrolling
+        },
+        closeModal() {
+            this.activeModal = null;
+            document.body.classList.remove('modal-open'); // Remove class from body
+        }
+    }
+}
+</script>
+<style scoped>
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+</style>

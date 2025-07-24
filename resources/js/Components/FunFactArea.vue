@@ -1,8 +1,6 @@
 <template>
     <div
         class="fun-fact-area fun-fact-bg position-relative over-hidden pt-150 pb-120"
-        data-aos="fade-up"
-        data-aos-duration="900"
     >
         <div class="container">
             <div class="row">
@@ -13,7 +11,13 @@
                                 <span
                                     class="meta-text-color text-uppercase d-block mb-1 mt--5"
                                 ></span>
-                                <h2 class="mb-30 text-white">
+                                <h2
+                                    class="mb-30 text-white"
+                                    style="
+                                        color: white !important;
+                                        opacity: 1 !important;
+                                    "
+                                >
                                     Why you will select me?
                                 </h2>
                             </div>

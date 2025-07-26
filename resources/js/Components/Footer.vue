@@ -1,43 +1,137 @@
 <template>
-    <footer>
-        <div class="footer-area theme-bg pt-100 pb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12  col-md-12  col-sm-12 col-12">
-                        <div class="footer-content text-center">
-                            <div class="footer-logo mb-40">
-                                <a href="/"><img src="/images/logo/logo-dark.webp" alt=""></a>
-                            </div><!-- /footer-logo -->
-                            <div class="footer-social-link mb-45">
-                                <ul class="social social-bg-2">
-                                    <li class="rotate-hover">
-                                        <a class="twitter-bg text-center pr-0 text-white d-block rotate transition-3"
-                                            href="https://twitter.com/darahat42"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li class="rotate-hover">
-                                        <a class="linkedin-bg text-center pr-0 text-white d-block rotate transition-3"
-                                            href="https://www.linkedin.com/in/didarulalamrahat"><i
-                                                class="fab fa-linkedin-in"></i></a>
-                                    </li>
-                                    <li class="rotate-hover">
-                                        <a class="github-bg text-center pr-0 text-white d-block rotate transition-3"
-                                            href="https://github.com/Darahat"><i class="fab fa-github"></i></a>
-                                    </li>
-                                    <li class="rotate-hover">
-                                        <a class="stack-overflow-bg text-center pr-0 text-white d-block rotate transition-3"
-                                            href="https://stackoverflow.com/users/3424210/didarul-alam-rahat"><i
-                                                class="fab fa-stack-overflow"></i></a>
-                                    </li>
-                                </ul><!-- social -->
-                            </div><!-- /footer-social-link -->
-                            <div class="copyright-text">
-                                <p class="mb-0">Copyright &copy; 2024 <a href="#">Didarul Alam Rahat</a>. All Rights
-                                    Reserved.</p>
-                            </div><!-- /copyright-text -->
-                        </div><!-- /footer-content -->
-                    </div><!-- /col -->
-                </div><!-- /row -->
-            </div><!-- /container -->
-        </div><!-- /footer-area -->
+    <footer class="bg-white pt-24 pb-16 border-t">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Logo & Copyright -->
+                <div>
+                    <div class="mb-6">
+                        <img
+                            src="/images/logo/logo-dark.webp"
+                            alt="Didarul Alam Rahat - Full Stack Developer"
+                            class="h-10"
+                        />
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        All rights reserved © 2024
+                        <a
+                            href="#contact"
+                            class="text-primary font-semibold hover:underline"
+                        >
+                            darahat42
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Social Links (Responsive handling: hidden in lg, shown in sm-md) -->
+                <div class="hidden sm:block lg:hidden">
+                    <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                    <ul class="flex flex-col space-y-2">
+                        <li>
+                            <a
+                                href="https://twitter.com/darahat42"
+                                class="flex items-center text-gray-600 hover:text-primary transition"
+                                target="_blank"
+                            >
+                                <i class="fab fa-twitter mr-2"></i> Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/didarulalamrahat"
+                                class="flex items-center text-gray-600 hover:text-primary transition"
+                                target="_blank"
+                            >
+                                <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <form @submit.prevent="handleSubscribe">
+                        <label
+                            for="email"
+                            class="block text-sm text-gray-600 mb-1"
+                            >Email Address</label
+                        >
+                        <div class="relative">
+                            <input
+                                v-model="email"
+                                type="email"
+                                id="email"
+                                placeholder="Submit your email"
+                                class="w-full border rounded-md py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary"
+                            />
+                            <button
+                                type="submit"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-primary"
+                            >
+                                <i class="fal fa-envelope"></i>
+                            </button>
+                        </div>
+                        <p v-if="message" class="text-sm text-green-600 mt-2">
+                            {{ message }}
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Social Links (Visible only on lg and above) -->
+                <div class="hidden lg:block">
+                    <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                    <ul class="flex flex-col space-y-2">
+                        <li>
+                            <a
+                                href="https://twitter.com/darahat42"
+                                class="flex items-center text-gray-600 hover:text-primary transition"
+                                target="_blank"
+                            >
+                                <i class="fab fa-twitter mr-2"></i> Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/didarulalamrahat/"
+                                class="flex items-center text-gray-600 hover:text-primary transition"
+                                target="_blank"
+                            >
+                                <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://github.com/Darahat"
+                                class="flex items-center text-gray-600 hover:text-primary transition"
+                                target="_blank"
+                            >
+                                <i class="fab fa-github mr-2"></i> GitHub
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const email = ref("");
+const message = ref("");
+
+const handleSubscribe = () => {
+    if (email.value) {
+        message.value = "Subscribed successfully!";
+        email.value = "";
+        setTimeout(() => (message.value = ""), 5000);
+    }
+};
+</script>
+
+<style scoped>
+.text-primary {
+    color: #ef4444; /* Customize this for your theme color */
+}
+</style>

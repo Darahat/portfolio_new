@@ -1,3 +1,5 @@
+export function TyperSetup() {
+
 var Typer = function(element) {
   this.element = element;
   var delim = element.dataset.delim || ",";
@@ -114,3 +116,4 @@ function TyperSetup() {
 }
 
 TyperSetup();
+}

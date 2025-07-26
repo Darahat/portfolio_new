@@ -1,12 +1,7 @@
-<script setup>
-import { Head } from '@inertiajs/vue3';
-import Header from '@/Components/Header.vue';
-import Footer from '@/Components/Footer.vue';
-
-</script>
-
 <template>
-    <Head title="Didarul Alam Rahat - Full-Stack & Flutter Developer | Web3 & Blockchain Specialist" />
+    <Head
+        title="Didarul Alam Rahat - Full-Stack & Flutter Developer | Web & Blockchain Specialist"
+    />
 
     <div id="preloader">
         <div id="loading">
@@ -22,9 +17,14 @@ import Footer from '@/Components/Footer.vue';
 
     <Header />
 
-    <main class="over-hiddenn">
+    <main class="over-hidden">
         <slot />
     </main>
 
     <Footer />
 </template>
+<script setup>
+import Footer from "@/Components/Footer.vue";
+import Header from "@/Components/Header.vue";
+import { Head } from "@inertiajs/vue3";
+</script>

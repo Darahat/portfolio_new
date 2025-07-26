@@ -46,12 +46,12 @@
                                     >24 April 2024</a
                                 >
                             </div>
-                            <h3>
+                            <h4>
                                 <a href="blog-details.html"
                                     >How to Build a Scalable Web Application
                                     with Laravel and Vue.js</a
                                 >
-                            </h3>
+                            </h4>
                         </div>
                         <!-- /blog-content -->
                     </div>
@@ -88,12 +88,12 @@
                                     >15 March 2024</a
                                 >
                             </div>
-                            <h3>
+                            <h4>
                                 <a href="blog-details.html"
                                     >Mastering Flutter: Building Cross-Platform
                                     Mobile Apps Efficiently</a
                                 >
-                            </h3>
+                            </h4>
                         </div>
                         <!-- /blog-content -->
                     </div>
@@ -130,13 +130,13 @@
                                     >01 February 2024</a
                                 >
                             </div>
-                            <h3>
+                            <h4>
                                 <a href="blog-details.html"
                                     >Exploring the Future: Decentralized
                                     Applications (DApps) and Blockchain
                                     Technology</a
                                 >
-                            </h3>
+                            </h4>
                         </div>
                         <!-- /blog-content -->
                     </div>

@@ -1,38 +1,18 @@
+<script setup>
+import { TyperSetup } from "@/../../public/js/typer";
+import { onMounted } from "vue";
+
+onMounted(() => {
+    TyperSetup();
+});
+</script>
+
 <template>
     <div id="home" class="slider-area slider-bg-color over-hidden">
         <div
             class="single-slider slider-height over-hidden position-relative xxl-device-width bg-cover no-repeat"
             data-background="/images/slider/slider-bg.webp"
         >
-            <div
-                id="scene"
-                class="parallax position-absolute w-100 h-100 z-index1"
-            >
-                <img
-                    data-depth="0.20"
-                    class="hero-shape hero-shape1 position-absolute d-none d-lg-inline-block"
-                    src="/images/shape/shape1.webp"
-                    alt="Hero Shape"
-                /><!-- /hero-shape1 -->
-                <img
-                    data-depth="0.15"
-                    class="hero-shape hero-shape2 position-absolute d-none d-lg-inline-block"
-                    src="/images/shape/shape2.webp"
-                    alt="Hero Shape"
-                /><!-- /hero-shape2 -->
-                <img
-                    data-depth="0.30"
-                    class="hero-shape hero-shape3 position-absolute d-none d-lg-inline-block"
-                    src="/images/shape/shape3.webp"
-                    alt="Hero Shape"
-                /><!-- /hero-shape3 -->
-                <img
-                    data-depth="0.10"
-                    class="hero-shape hero-shape4 position-absolute d-none d-lg-inline-block"
-                    src="/images/shape/shape4.webp"
-                    alt="Hero Shape"
-                /><!-- /hero-shape4 -->
-            </div>
             <!-- /parallax -->
 
             <div
@@ -46,11 +26,13 @@
                     >
                         <div
                             class="slider-content text-center position-relative z-index11"
-                            data-aos="fade-right"
-                            data-aos-duration="1100"
-                            data-aos-delay="500"
                         >
-                            <h1 class="mb-15 white-text">
+                            <h1
+                                class="mb-15 white-text"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="100"
+                            >
                                 <span
                                     class="sub-heading d-block text-uppercase primary-color mb-1"
                                     >Hello, I’m</span
@@ -58,7 +40,12 @@
                                 Didarul Alam
                                 <span class="hm2-m-hero-text-style">Rahat</span>
                             </h1>
-                            <h2 class="text-capitalize white-text mb-45">
+                            <h2
+                                class="text-capitalize white-text mb-45"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="200"
+                            >
                                 A Passionate
                                 <span class="d-text d-block d-sm-inline-block">
                                     <span
@@ -74,16 +61,22 @@
                                     ></span>
                                 </span>
                             </h2>
-                            <a
-                                href="#contact"
-                                class="btn position-relative over-hidden theme-bg text-uppercase transition5 mr-3"
-                                >Hire Me</a
+                            <div
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="300"
                             >
-                            <a
-                                href="#about"
-                                class="btn position-relative over-hidden bg-transparent main-border text-uppercase transition5"
-                                >About Me</a
-                            >
+                                <a
+                                    href="#contact"
+                                    class="btn position-relative over-hidden theme-bg text-uppercase transition5 mr-3"
+                                    >Hire Me</a
+                                >
+                                <a
+                                    href="#about"
+                                    class="btn position-relative over-hidden bg-transparent main-border text-uppercase transition5"
+                                    >About Me</a
+                                >
+                            </div>
                         </div>
                         <!-- /slider-content -->
                     </div>
@@ -95,6 +88,9 @@
 
             <div
                 class="slider-social-link position-absolute right-0 d-none d-md-block z-index11"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="500"
             >
                 <ul class="social pr-60">
                     <li class="mt-10 mb-10 rotate-hover">
@@ -134,4 +130,3 @@
         <!-- /single-slider -->
     </div>
 </template>
-

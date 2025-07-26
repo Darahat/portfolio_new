@@ -1,23 +1,53 @@
 <script setup>
-import { ref, onMounted, defineAsyncComponent } from "vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { Head } from "@inertiajs/vue3";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { defineAsyncComponent, onMounted, ref } from "vue";
 
 // Define async components for lazy loading
-const HeroArea = defineAsyncComponent(() => import("@/Components/HeroArea.vue"));
-const IntroFeatureArea = defineAsyncComponent(() => import("@/Components/IntroFeatureArea.vue"));
-const AboutArea = defineAsyncComponent(() => import("@/Components/AboutArea.vue"));
-const PortfolioArea = defineAsyncComponent(() => import("@/Components/PortfolioArea.vue"));
-const FunFactArea = defineAsyncComponent(() => import("@/Components/FunFactArea.vue"));
-const ExperienceArea = defineAsyncComponent(() => import("@/Components/ExperienceArea.vue"));
-const EducationArea = defineAsyncComponent(() => import("@/Components/EducationArea.vue"));
-const SkillArea = defineAsyncComponent(() => import("@/Components/SkillArea.vue"));
-const ServiceArea = defineAsyncComponent(() => import("@/Components/ServiceArea.vue"));
-const PricingArea = defineAsyncComponent(() => import("@/Components/PricingArea.vue"));
-const TestimonialArea = defineAsyncComponent(() => import("@/Components/TestimonialArea.vue"));
-const BrandArea = defineAsyncComponent(() => import("@/Components/BrandArea.vue"));
-const BlogArea = defineAsyncComponent(() => import("@/Components/BlogArea.vue"));
-const ContactArea = defineAsyncComponent(() => import("@/Components/ContactArea.vue"));
+const HeroArea = defineAsyncComponent(() =>
+    import("@/Components/HeroArea.vue")
+);
+const IntroFeatureArea = defineAsyncComponent(() =>
+    import("@/Components/IntroFeatureArea.vue")
+);
+const AboutArea = defineAsyncComponent(() =>
+    import("@/Components/AboutArea.vue")
+);
+const PortfolioArea = defineAsyncComponent(() =>
+    import("@/Components/PortfolioArea.vue")
+);
+const FunFactArea = defineAsyncComponent(() =>
+    import("@/Components/FunFactArea.vue")
+);
+const ExperienceArea = defineAsyncComponent(() =>
+    import("@/Components/ExperienceArea.vue")
+);
+const EducationArea = defineAsyncComponent(() =>
+    import("@/Components/EducationArea.vue")
+);
+const SkillArea = defineAsyncComponent(() =>
+    import("@/Components/SkillArea.vue")
+);
+const ServiceArea = defineAsyncComponent(() =>
+    import("@/Components/ServiceArea.vue")
+);
+const PricingArea = defineAsyncComponent(() =>
+    import("@/Components/PricingArea.vue")
+);
+const TestimonialArea = defineAsyncComponent(() =>
+    import("@/Components/TestimonialArea.vue")
+);
+const BrandArea = defineAsyncComponent(() =>
+    import("@/Components/BrandArea.vue")
+);
+const BlogArea = defineAsyncComponent(() =>
+    import("@/Components/BlogArea.vue")
+);
+const ContactArea = defineAsyncComponent(() =>
+    import("@/Components/ContactArea.vue")
+);
 
 // Reactive refs to control component visibility
 const heroAreaVisible = ref(false);
@@ -89,6 +119,13 @@ onMounted(() => {
     createObserver(brandAreaRef, brandAreaVisible);
     createObserver(blogAreaRef, blogAreaVisible);
     createObserver(contactAreaRef, contactAreaVisible);
+});
+
+onMounted(() => {
+    AOS.init();
+    if (typeof TyperSetup === "function") {
+        TyperSetup();
+    }
 });
 </script>
 

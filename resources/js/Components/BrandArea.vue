@@ -1,5 +1,5 @@
 <template>
-    <section class="py-20 bg-white overflow-hidden">
+    <section class="py-20 bg-white overflow-hidden" data-aos="fade-up">
         <div class="container mx-auto text-center title mb-12 pb-12">
             <span class="meta-text-color text-uppercase d-block mb-6"
                 >Partners</span

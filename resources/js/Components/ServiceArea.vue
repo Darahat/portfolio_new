@@ -1,5 +1,5 @@
 <template>
-    <div id="service" class="service-area theme-bg over-hidden pt-160 pb-145">
+    <div id="service" class="service-area theme-bg over-hidden pt-160 pb-145" data-aos="fade-up">
         <div class="service-wrapper position-relative">
             <div class="container">
                 <div class="row align-items-start">

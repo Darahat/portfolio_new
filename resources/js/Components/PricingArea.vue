@@ -1,5 +1,5 @@
 <template>
-    <div class="pricing-area over-hidden pt-160 pb-140">
+    <div class="pricing-area over-hidden pt-160 pb-140" data-aos="fade-up">
         <div class="container">
             <div class="row align-items-start">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

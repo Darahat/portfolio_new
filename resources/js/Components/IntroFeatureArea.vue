@@ -1,5 +1,5 @@
 <template>
-    <div class="intro-feature-area over-hidden position-relative section-bg">
+    <div class="intro-feature-area over-hidden position-relative section-bg" data-aos="fade-up">
         <div class="container">
             <div class="row single-intro-feature-wrapper justify-content-center pt-170 pb-140">
                 <div class="col-xl-3  col-lg-3  col-md-6  col-sm-9 col-11">

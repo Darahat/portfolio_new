@@ -1,5 +1,5 @@
 <template>
-    <div id="work" class="portfolio-area over-hidden pb-165">
+    <div id="work" class="portfolio-area over-hidden pb-165" data-aos="fade-up">
 
         <div class="marquee-w mb-125">
             <div class="marquee">

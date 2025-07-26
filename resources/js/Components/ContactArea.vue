@@ -1,5 +1,5 @@
 <template>
-    <section id="contact" class="mt-40 mb-40 overflow-hidden">
+    <section id="contact" class="mt-40 mb-40 overflow-hidden" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 pb-12 title">
                 <span class="meta-text-color text-uppercase d-block mb-6"

@@ -1,5 +1,5 @@
 <template>
-    <div class="testimonial-area position-relative over-hidden">
+    <div class="testimonial-area position-relative over-hidden" data-aos="fade-up">
         <div class="container">
             <div
                 class="testimonial-bg section-bg pt-170 pb-170 position-relative"

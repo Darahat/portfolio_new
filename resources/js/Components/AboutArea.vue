@@ -1,5 +1,5 @@
 <template>
-    <div id="about" class="about-area over-hidden">
+    <div id="about" class="about-area over-hidden" data-aos="fade-up">
         <div class="about-content-wrapper about-margin mt-170 mb-110 position-relative">
             <div class="container">
                 <div class="row justify-content-center">

@@ -2,7 +2,7 @@
     <div
         id="skills"
         class="skill-area over-hidden position-relative pt-130 pb-110"
-    >
+     data-aos="fade-up">
         <div class="marquee-w mb-125">
             <div class="marquee">
                 <span class="pl-4">

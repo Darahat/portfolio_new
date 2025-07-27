@@ -126,6 +126,46 @@ onMounted(() => {
     if (typeof TyperSetup === "function") {
         TyperSetup();
     }
+    //New Scrolling logic
+    const scrollToHash = () => {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetId = hash.substring(1);
+            let targetElement = null;
+            /// Map hash IDs to component refs
+            switch (targetId) {
+                case "home":
+                    targetElement = heroAreaRef.value;
+                    break;
+                case "about":
+                    targetElement = aboutAreaRef.value;
+                    break;
+                case "work": /// 'Works' in nav maps to 'portfolioAreaRef'
+                    targetElement = portfolioAreaRef.value;
+                    break;
+                case "service":
+                    targetElement = serviceAreaRef.value;
+                    break;
+                case "contact":
+                    targetElement = contactAreaRef.value;
+                    break;
+                case "blog":
+                    targetElement = blogAreaRef.value;
+                    break;
+                /// Add more cases for other section if needed
+            }
+            if (targetElement) {
+                /// Use setTimeout to ensure the component is rendered and visible
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+            }
+        }
+    };
+    /// call scrollToHash initialy
+    scrollToHash();
+    /// Listen for hash changes
+    window.addEventListener("hashChange", scrollToHash);
 });
 </script>
 

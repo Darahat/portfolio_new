@@ -50,7 +50,7 @@
                 <a
                     href="/Files/darahatcv.pdf"
                     download
-                    class="bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-200 transition"
+                    class="text-white border border-white px-4 py-2 rounded shadow hover:bg-white hover:text-black transition"
                 >
                     Download CV
                 </a>
@@ -100,10 +100,7 @@
                 <a
                     href="/Files/darahatcv.pdf"
                     download
-                    class="mt-4 bg-primary text-black px-4 py-2 rounded shadow hover:bg-gray-300"
-                    data-aos="fade-up"
-                    data-aos-delay="700"
-                    data-aos-duration="300"
+                    class="text-white border border-white px-4 py-2 rounded shadow hover:bg-white hover:text-black transition"
                 >
                     Download CV
                 </a>

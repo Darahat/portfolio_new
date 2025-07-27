@@ -1,5 +1,6 @@
 <template>
     <div id="work" class="portfolio-area over-hidden pb-165" data-aos="fade-up">
+        <!-- Marquee Section -->
         <div class="marquee-w mb-125">
             <div class="marquee">
                 <span class="pl-4">Full Stack Web Developer*</span>
@@ -10,12 +11,12 @@
                 <span>I’m Open for new projects * Let’s Work Together.</span>
             </div>
         </div>
-        <!-- /marquee -->
 
+        <!-- Portfolio Section -->
         <div class="portfolio-wrapper position-relative mt--5">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="col-12">
                         <div class="title text-center">
                             <span
                                 class="meta-text-color text-uppercase d-block mb-6"
@@ -23,12 +24,10 @@
                             >
                             <h2>My Recent Works</h2>
                         </div>
-                        <!-- /title -->
                     </div>
-                    <!-- /col -->
                 </div>
-                <!-- /row -->
 
+                <!-- Portfolio Items -->
                 <div class="row portfolio mt-80">
                     <div
                         class="col-12"
@@ -59,234 +58,20 @@
                                 />
                                 <div
                                     class="port-content text-center transition5 z-index11"
-                                    @click="openModal(item.id)"
                                 >
-                                    <span class="d-inline-block"
-                                        ><i class="far fa-plus"></i
-                                    ></span>
+                                    <a :href="route('portfolio.show', item.id)">
+                                        <span class="d-inline-block"
+                                            ><i class="far fa-plus"></i
+                                        ></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- /col -->
 
-                        <!-- /row -->
-                        <!-- Modal Starts -->
-                        <div
-                            v-if="activeModal === item.id"
-                            class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center p-4"
-                            @click.self="closeModal"
-                        >
-                            <div
-                                class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-                            >
-                                <!-- Background overlay -->
-                                <div
-                                    class="fixed inset-0 transition-opacity"
-                                    aria-hidden="true"
-                                >
-                                    <div
-                                        class="absolute inset-0 bg-gray-900 opacity-75"
-                                    ></div>
-                                </div>
-
-                                <!-- Modal panel -->
-                                <div
-                                    class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full"
-                                >
-                                    <div
-                                        class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
-                                    >
-                                        <div class="flex justify-end">
-                                            <button
-                                                type="button"
-                                                class="text-gray-400 hover:text-gray-500 focus:outline-none"
-                                                @click="closeModal"
-                                                aria-label="Close"
-                                            >
-                                                <span class="sr-only"
-                                                    >Close</span
-                                                >
-                                                <i
-                                                    class="fa fa-times text-xl"
-                                                ></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <div class="mb-6">
-                                                <img
-                                                    class="w-full rounded-lg"
-                                                    :src="item.imageLarge"
-                                                    :alt="item.title"
-                                                />
-                                            </div>
-
-                                            <div
-                                                class="grid grid-cols-1 lg:grid-cols-2 gap-8"
-                                            >
-                                                <div>
-                                                    <h2
-                                                        class="text-2xl font-bold text-gray-900 mb-4"
-                                                    >
-                                                        {{ item.title }}
-                                                    </h2>
-                                                    <p class="text-gray-600">
-                                                        {{ item.description }}
-                                                    </p>
-                                                </div>
-
-                                                <div
-                                                    class="bg-gray-50 p-6 rounded-lg"
-                                                >
-                                                    <ul class="space-y-3">
-                                                        <li
-                                                            class="flex justify-between"
-                                                        >
-                                                            <span
-                                                                class="font-medium"
-                                                                >Project
-                                                                Type:</span
-                                                            >
-                                                            <span
-                                                                class="text-gray-600"
-                                                                >{{
-                                                                    item.projectType
-                                                                }}</span
-                                                            >
-                                                        </li>
-                                                        <li
-                                                            class="flex justify-between"
-                                                        >
-                                                            <span
-                                                                class="font-medium"
-                                                                >Client:</span
-                                                            >
-                                                            <span
-                                                                class="text-gray-600"
-                                                                >{{
-                                                                    item.client
-                                                                }}</span
-                                                            >
-                                                        </li>
-                                                        <li
-                                                            class="flex justify-between"
-                                                        >
-                                                            <span
-                                                                class="font-medium"
-                                                                >Duration:</span
-                                                            >
-                                                            <span
-                                                                class="text-gray-600"
-                                                                >{{
-                                                                    item.duration
-                                                                }}</span
-                                                            >
-                                                        </li>
-                                                        <li
-                                                            class="flex justify-between"
-                                                        >
-                                                            <span
-                                                                class="font-medium"
-                                                                >Task:</span
-                                                            >
-                                                            <span
-                                                                class="text-gray-600"
-                                                                >{{
-                                                                    item.task
-                                                                }}</span
-                                                            >
-                                                        </li>
-                                                        <li
-                                                            class="flex justify-between"
-                                                        >
-                                                            <span
-                                                                class="font-medium"
-                                                                >Budget:</span
-                                                            >
-                                                            <span
-                                                                class="text-gray-600"
-                                                                >{{
-                                                                    item.budget
-                                                                }}</span
-                                                            >
-                                                        </li>
-                                                    </ul>
-
-                                                    <a
-                                                        :href="item.liveUrl"
-                                                        target="_blank"
-                                                        class="mt-6 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                    >
-                                                        View Live
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                class="mt-8 pt-6 border-t border-gray-200"
-                                            >
-                                                <div
-                                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
-                                                >
-                                                    <div class="mb-4 sm:mb-0">
-                                                        <h6
-                                                            class="inline-block font-medium mr-3"
-                                                        >
-                                                            Tags:
-                                                        </h6>
-                                                        <div
-                                                            class="inline-block"
-                                                        >
-                                                            <span
-                                                                v-for="tag in item.tags"
-                                                                :key="tag"
-                                                                class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                                                            >
-                                                                {{ tag }}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <h6
-                                                            class="inline-block font-medium mr-3"
-                                                        >
-                                                            Share this project:
-                                                        </h6>
-                                                        <div
-                                                            class="inline-block"
-                                                        >
-                                                            <a
-                                                                href="https://twitter.com/darahat42"
-                                                                class="inline-block text-blue-400 hover:text-blue-500 mx-1"
-                                                            >
-                                                                <i
-                                                                    class="fab fa-twitter text-xl"
-                                                                ></i>
-                                                            </a>
-                                                            <a
-                                                                href="https://www.linkedin.com/in/didarulalamrahat/"
-                                                                class="inline-block text-blue-600 hover:text-blue-700 mx-1"
-                                                            >
-                                                                <i
-                                                                    class="fab fa-linkedin-in text-xl"
-                                                                ></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal end -->
+                        
                     </div>
                 </div>
-                <!-- /container -->
             </div>
-            <!-- /portfolio-wrapper -->
         </div>
     </div>
 </template>
@@ -295,7 +80,6 @@
 import { ref } from "vue";
 
 // Modal state
-const activeModal = ref(null);
 
 // Portfolio Items
 const portfolioItems = [
@@ -432,12 +216,15 @@ const portfolioItems = [
     },
 ];
 
-// Modal controls
+const activeModal = ref(null);
+
 function openModal(id) {
     activeModal.value = id;
+    document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
     activeModal.value = null;
+    document.body.style.overflow = "";
 }
 </script>

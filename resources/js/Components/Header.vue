@@ -1,83 +1,158 @@
 <template>
-    <header>
-        <div id="header-sticky" class="transparent-header header-area">
-            <div class="header">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-5">
-                            <div class="logo mt-50 mb-50 transition5">
-                                <a class="header-logo" href="/"><img src="/images/logo/logo.webp"
-                                        alt="Didarul Alam Rahat logo"></a>
-                            </div>
-                        </div><!-- /col -->
-                        <div
-                            class="col-xl-10 col-lg-10 col-md-9 col-sm-8 col-7 pl-0 d-flex justify-content-end align-items-center">
-                            <div class="main-menu">
-                                <nav id="mobile-menu">
-                                    <ul class="d-block">
-                                        <li>
-                                            <a class="active" href="#home">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="#about">About</a>
-                                        </li>
-                                        <li>
-                                            <a href="#work">Works</a>
-                                        </li>
-                                        <li>
-                                            <a href="#service">service</a>
-                                        </li>
-                                        <li>
-                                            <a href="#contact">Contact</a>
-                                        </li>
-                                        <li>
-                                            <a href="#blog">Blog</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div><!-- /main-menu -->
-                            <div class="header-btn pl-45">
-                                <a href="/Files/darahatcv.pdf" download
-                                    class="white-text text-uppercase d-inline-block">download cv</a>
-                            </div><!-- /header-btn -->
-                            <!-- <div class="mobile-m-bar d-block d-lg-none ml-30">
-                                <a class="mobile-menubar theme-color primary-hover" href="javascript:void(0);"><i
-                                        class="far fa-bars"></i></a>
-                            </div> -->
-                        </div><!-- /col -->
-                    </div><!-- /row -->
-                </div><!-- /container -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+        :class="{ 'bg-black bg-opacity-70 backdrop-blur': isSticky }"
+        data-aos="fade-down"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-offset="0"
+    >
+        <div
+            class="container mx-auto px-4 py-4 flex items-center justify-between"
+        >
+            <!-- Logo with animation -->
+            <a
+                href="/"
+                class="flex items-center space-x-2"
+                data-aos="fade-right"
+                data-aos-delay="100"
+                data-aos-duration="500"
+            >
+                <img
+                    src="/images/logo/logo.webp"
+                    alt="Didarul Alam Rahat logo"
+                    class="h-10 w-auto"
+                />
+            </a>
+
+            <!-- Desktop Nav with staggered animations -->
+            <nav class="hidden lg:flex space-x-6 text-white font-medium">
+                <a
+                    v-for="(item, index) in navItems"
+                    :key="item.label"
+                    :href="item.href"
+                    class="hover:text-primary"
+                    :data-aos="'fade-down'"
+                    :data-aos-delay="100 + index * 100"
+                    data-aos-duration="500"
+                >
+                    {{ item.label }}
+                </a>
+            </nav>
+
+            <!-- CV Button with animation -->
+            <div
+                class="hidden lg:block ml-6"
+                data-aos="fade-left"
+                data-aos-delay="600"
+                data-aos-duration="500"
+            >
+                <a
+                    href="/Files/darahatcv.pdf"
+                    download
+                    class="text-white border border-white px-4 py-2 rounded shadow hover:bg-white hover:text-black transition"
+                >
+                    Download CV
+                </a>
             </div>
-        </div><!-- /header-bottom -->
-    </header>
-    <!--  header-area-end  -->
 
-
-    <!--  ====== header extra info start
-    ============================================================ -->
-
-    <!-- side-mobile-menu start -->
-    <div class="side-mobile-menu pt-15 pb-30 pl-30 pr-20 pb-100">
-        <div class="d-fle justify-content-between w-100">
-            <div class="close-icon d-inline-block float-right clear-both mt-20 mb-15">
-                <!-- <a href="javascript:void(0);"><span class="icon-clear theme-color"><i
-                                class="fa fa-times"></i></span></a> -->
-            </div>
+            <!-- Mobile Toggle with animation -->
+            <button
+                class="lg:hidden text-white text-2xl focus:outline-none"
+                @click="toggleMobileMenu"
+                data-aos="fade-left"
+                data-aos-delay="600"
+                data-aos-duration="500"
+            >
+                <i class="far fa-bars"></i>
+            </button>
         </div>
-        <div class="mobile-menu mt-10"></div>
-        <h5 class="text-white text-center mt-35 pb-1 d-inline-block ml-3">Follow me</h5>
-        <ul class="social social-bg text-center d-flex mt-10 ml-3">
-            <li class="mr-2 rotate-hover">
-                <a class="twitter-bg text-center pr-0 text-white d-block rotate transition-3"
-                    href="https://twitter.com/darahat42"><i class="fab fa-twitter"></i>Twitter</a>
-            </li>
-            <li class="mr-2 rotate-hover">
-                <a class="linkedin-bg text-center pr-0 text-white d-block rotate transition-3"
-                    href="https://www.linkedin.com/in/didarulalamrahat"><i
-                        class="fab fa-linkedin-in"></i>Linkedin</a>
-            </li>
-        </ul><!-- social -->
-    </div><!-- /side-mobile-menu -->
-    <div class="body-overlay"></div>
-    <!-- header extra info end  -->
+
+        <!-- Mobile Menu with animations -->
+        <div
+            v-if="mobileMenuOpen"
+            class="fixed inset-0 z-40 bg-black bg-opacity-80 text-white lg:hidden"
+        >
+            <div class="flex justify-end p-4">
+                <button
+                    @click="toggleMobileMenu"
+                    class="text-white text-2xl"
+                    data-aos="fade-left"
+                    data-aos-duration="300"
+                >
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <nav
+                class="flex flex-col items-center space-y-6 pt-10 text-lg bg-black bg-opacity-80 text-white pb-10"
+            >
+                <a
+                    v-for="(item, index) in navItems"
+                    :key="item.label"
+                    :href="item.href"
+                    @click="toggleMobileMenu"
+                    :data-aos="'fade-up'"
+                    :data-aos-delay="100 + index * 100"
+                    data-aos-duration="300"
+                >
+                    {{ item.label }}
+                </a>
+                <a
+                    href="/Files/darahatcv.pdf"
+                    download
+                    class="text-white border border-white px-4 py-2 rounded shadow hover:bg-white hover:text-black transition"
+                >
+                    Download CV
+                </a>
+            </nav>
+        </div>
+    </header>
 </template>
+<script setup>
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { onMounted, onUnmounted, ref } from "vue";
+
+const mobileMenuOpen = ref(false);
+const isSticky = ref(false);
+
+const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Works", href: "#work" },
+    { label: "Service", href: "#service" },
+    { label: "Contact", href: "#contact" },
+    { label: "Blog", href: "#blog" },
+];
+
+const toggleMobileMenu = () => {
+    mobileMenuOpen.value = !mobileMenuOpen.value;
+    if (mobileMenuOpen.value) {
+        // Reinitialize AOS for mobile menu items when it opens
+        setTimeout(() => {
+            AOS.refresh();
+        }, 50);
+    }
+};
+
+const handleScroll = () => {
+    isSticky.value = window.scrollY > 20;
+};
+
+onMounted(() => {
+    AOS.init({
+        once: true, // Animations only happen once
+        offset: 10, // Change offset to trigger animations sooner
+    });
+    window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+</script>
+<style scoped>
+a {
+    color: white;
+}
+</style>

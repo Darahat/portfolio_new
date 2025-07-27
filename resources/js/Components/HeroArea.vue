@@ -10,9 +10,38 @@ onMounted(() => {
 <template>
     <div id="home" class="slider-area slider-bg-color over-hidden">
         <div
-            class="single-slider slider-height over-hidden position-relative xxl-device-width bg-cover no-repeat"
-            data-background="/images/slider/slider-bg.webp"
+            class="single-slider slider-height over-hidden relative bg-cover bg-no-repeat"
+            :style="{ backgroundImage: 'url(/images/slider/slider-bg.webp)' }"
         >
+            <div
+                id="scene"
+                class="parallax position-absolute w-100 h-100 z-index1"
+            >
+                <img
+                    data-depth="0.20"
+                    class="hero-shape hero-shape1 position-absolute d-none d-lg-inline-block"
+                    src="/images/shape/shape1.webp"
+                    alt="Hero Shape"
+                /><!-- /hero-shape1 -->
+                <img
+                    data-depth="0.15"
+                    class="hero-shape hero-shape2 position-absolute d-none d-lg-inline-block"
+                    src="/images/shape/shape2.webp"
+                    alt="Hero Shape"
+                /><!-- /hero-shape2 -->
+                <img
+                    data-depth="0.30"
+                    class="hero-shape hero-shape3 position-absolute d-none d-lg-inline-block"
+                    src="/images/shape/shape3.webp "
+                    alt="Hero Shape"
+                /><!-- /hero-shape3 -->
+                <img
+                    data-depth="0.10"
+                    class="hero-shape hero-shape4 position-absolute d-none d-lg-inline-block"
+                    src="/images/shape/shape4.webp"
+                    alt="Hero Shape"
+                /><!-- /hero-shape4 -->
+            </div>
             <!-- /parallax -->
 
             <div

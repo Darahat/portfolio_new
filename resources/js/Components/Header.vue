@@ -117,12 +117,12 @@ const mobileMenuOpen = ref(false);
 const isSticky = ref(false);
 
 const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Works", href: "#work" },
-    { label: "Service", href: "#service" },
-    { label: "Contact", href: "#contact" },
-    { label: "Blog", href: "#blog" },
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+    { label: "Works", href: "/#work" },
+    { label: "Service", href: "/#service" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Blog", href: "/#blog" },
 ];
 
 const toggleMobileMenu = () => {

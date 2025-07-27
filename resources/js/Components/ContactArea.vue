@@ -1,5 +1,9 @@
 <template>
-    <section id="contact" class="mt-40 mb-40 overflow-hidden" data-aos="fade-up">
+    <section
+        id="contact"
+        class="mt-40 mb-40 overflow-hidden"
+        data-aos="fade-up"
+    >
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 pb-12 title">
                 <span class="meta-text-color text-uppercase d-block mb-6"
@@ -54,7 +58,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form class="space-y-6" @submit.prevent="handleSubmit">
+                <form class="space-y-6" @submit.prevent="submit">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="name" class="block mb-1 font-medium"
@@ -65,8 +69,15 @@
                                 id="name"
                                 type="text"
                                 class="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                                :class="{ 'border-red-500': form.errors.name }"
                                 placeholder="Your Name"
                             />
+                            <div
+                                v-if="form.errors.name"
+                                class="text-red-500 text-sm mt-1"
+                            >
+                                {{ form.errors.name }}
+                            </div>
                         </div>
                         <div>
                             <label for="email" class="block mb-1 font-medium"
@@ -77,8 +88,15 @@
                                 id="email"
                                 type="email"
                                 class="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                                :class="{ 'border-red-500': form.errors.email }"
                                 placeholder="Your Email"
                             />
+                            <div
+                                v-if="form.errors.email"
+                                class="text-red-500 text-sm mt-1"
+                            >
+                                {{ form.errors.email }}
+                            </div>
                         </div>
                         <div>
                             <label for="phone" class="block mb-1 font-medium"
@@ -89,8 +107,15 @@
                                 id="phone"
                                 type="text"
                                 class="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                                :class="{ 'border-red-500': form.errors.phone }"
                                 placeholder="Your Phone"
                             />
+                            <div
+                                v-if="form.errors.phone"
+                                class="text-red-500 text-sm mt-1"
+                            >
+                                {{ form.errors.phone }}
+                            </div>
                         </div>
                         <div>
                             <label for="subject" class="block mb-1 font-medium"
@@ -101,8 +126,17 @@
                                 id="subject"
                                 type="text"
                                 class="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                                :class="{
+                                    'border-red-500': form.errors.subject,
+                                }"
                                 placeholder="Your Subject"
                             />
+                            <div
+                                v-if="form.errors.subject"
+                                class="text-red-500 text-sm mt-1"
+                            >
+                                {{ form.errors.subject }}
+                            </div>
                         </div>
                     </div>
 
@@ -115,20 +149,24 @@
                             id="message"
                             rows="5"
                             class="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                            :class="{ 'border-red-500': form.errors.message }"
                             placeholder="Start writing message here"
                         ></textarea>
+                        <div
+                            v-if="form.errors.message"
+                            class="text-red-500 text-sm mt-1"
+                        >
+                            {{ form.errors.message }}
+                        </div>
                     </div>
 
                     <button
                         type="submit"
                         class="bg-primary text-white px-6 py-3 rounded-md uppercase font-semibold hover:bg-opacity-90 transition"
+                        :disabled="form.processing"
                     >
                         Submit Now
                     </button>
-
-                    <p v-if="status" class="mt-4 text-green-600">
-                        {{ status }}
-                    </p>
                 </form>
             </div>
 
@@ -145,9 +183,9 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { useForm } from "@inertiajs/vue3"; // Import useForm
 
-const form = reactive({
+const form = useForm({
     name: "",
     email: "",
     phone: "",
@@ -155,20 +193,21 @@ const form = reactive({
     message: "",
 });
 
-const status = ref("");
-
-const handleSubmit = () => {
-    // Simulate submission
-    console.log("Form submitted:", form);
-    status.value = "Thank you for your message!";
-    setTimeout(() => (status.value = ""), 5000);
-
-    // Reset form
-    form.name = "";
-    form.email = "";
-    form.phone = "";
-    form.subject = "";
-    form.message = "";
+const submit = () => {
+    form.post(route("contact.send"), {
+        // This will be the new route we define later
+        onSuccess: () => {
+            form.reset(); // Reset form fields on successful submission
+            alert("Your message has been sent successfully!"); // Simple alert for now
+        },
+        onError: (errors) => {
+            // Errors will be automatically available in form.errors
+            console.error("Form submission failed:", errors);
+            alert(
+                "Failed to send message. Please check the form and try again."
+            ); // Simple alert for now
+        },
+    });
 };
 </script>
 

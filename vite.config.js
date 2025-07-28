@@ -53,14 +53,9 @@ export default defineConfig({
 
     ],
             resolve: {
-            alias: {
-            '$': 'jquery',
-            'jquery': 'jquery/src/jquery.js',
-            },
+               alias: {
+            '@': '/resources/js',
         },
-        build: {
-            rollupOptions: {
-            external: ['jquery'],
-            },
-  }
+        },
+
 });

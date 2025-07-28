@@ -1,33 +1,20 @@
-// import '/css/bootstrap.min.css';
-// import '/css/fontawesome-all.min.css';
-// import '/css/bootstrap.min.css';
-// import '/css/fontawesome-all.min.css';
-// import './bootstrap';
-import './bootstrap';
+import { createInertiaApp } from '@inertiajs/vue3'
+import { createApp, h } from 'vue'
 
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { createApp, h } from 'vue';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+// Import jQuery globally
+import jQuery from 'jquery'
+import '../css/app.css'
+import '../css/bootstrap.min.css'
+window.$ = window.jQuery = jQuery
+// Import other plugins
+import 'isotope-layout'
+import 'slick-carousel'
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) =>
-        resolvePageComponent(
-            `./Pages/${name}.vue`,
-            import.meta.glob('./Pages/**/*.vue'),
-        ),
-    setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
-    },
-    progress: {
-        color: '#4B5563',
-    },
-});
-
-// If you need SweetAlert2, install it via npm: npm install sweetalert2
+  resolve: name => require(`./Pages/${name}.vue`),
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
+  },
+})

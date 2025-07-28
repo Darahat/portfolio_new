@@ -14,3 +14,6 @@ Route::get('/', function () {
 Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::get('/test', function() {
+    return 'Laravel is working!';
+});
